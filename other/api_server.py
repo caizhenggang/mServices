@@ -15,7 +15,7 @@ class LoginHandler(RequestHandler):
         'last_login_device': 'Android 5.1 OnePlus5'
     }]
 
-    def get(self):
+    def get (self):
         # 读取json数据
         bytes = self.request.body # 字节类型
         print(bytes)
@@ -38,6 +38,7 @@ class LoginHandler(RequestHandler):
                     if user['pwd'] == json_data['pwd']:
                         login_user = user
                         break
+
             if login_user:
                 resp_data['msg'] = 'success'
                 resp_data['token'] = uuid.uuid4().hex
