@@ -8,7 +8,7 @@ from app.views.cookie_v import CookieHandler
 from app.views.index_v import IndexHandler
 from app.views.order_v import OrderHandler
 from app.views.search_v import SearchHandler
-from app.views.download import DownloadHandler
+from app.views.download import DownloadHandler, AsyncDownloadHandler, Async2DownloadHandler
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # C:\Users\10390\PycharmProjects\mircoServer
 
@@ -30,5 +30,7 @@ def make_app(host='localhost'):
         ('/search', SearchHandler),
         ('/cookie', CookieHandler),
         ('/download', DownloadHandler),
+        ('/download2', AsyncDownloadHandler),
+        ('/download3', Async2DownloadHandler),
         (r'/order/(?P<action_code>\d+)/(?P<order_id>\d+)', OrderHandler)
     ], default_host=host, **settings)
